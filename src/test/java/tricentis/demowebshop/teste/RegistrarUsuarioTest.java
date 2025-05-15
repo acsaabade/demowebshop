@@ -9,7 +9,7 @@ import tricentis.demowebshop.elementos.Elementos;
 import tricentis.demowebshop.metodos.Metodos;
 import tricentis.demowebshop.utils.MassaTestes;
 
-public class RegistrarUsuario {
+public class RegistrarUsuarioTest {
 
 	Elementos el = new Elementos();
 	Metodos metodo = new Metodos();
@@ -94,6 +94,3 @@ public class RegistrarUsuario {
 
 }
 
-/**
- * Dados inválidos
- */
