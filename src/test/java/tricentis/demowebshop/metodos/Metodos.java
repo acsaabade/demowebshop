@@ -7,6 +7,7 @@ import java.time.Duration;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.opentest4j.AssertionFailedError;
@@ -21,6 +22,14 @@ public class Metodos extends Drivers {
 			driver.findElement(locator).click();
 		} catch (Exception e) {
 			throw new NoSuchElementException("Elemento não encontrado " + locator);
+		}
+	}
+
+	public void clicar(String elemento, String texto) {
+		try {
+			driver.findElement(By.xpath("//*[" + elemento + "]//*[contains(text(),'" + texto + "')]")).click();
+		} catch (Exception e) {
+			throw new NoSuchElementException("Elemento não encontrado com o texto " + texto);
 		}
 
 	}
@@ -71,6 +80,16 @@ public class Metodos extends Drivers {
 		} catch (Exception e) {
 			throw new NoSuchElementException("Elemento não encontrado " + locator);
 		}
+	}
+
+	public void validarUrl(String urlDesejada) {
+		try {
+			assertEquals(urlDesejada, driver.getCurrentUrl());
+		} catch (Exception e) {
+			throw new NotFoundException(urlDesejada + " não encontrada.");
+
+		}
+
 	}
 
 }

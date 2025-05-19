@@ -17,16 +17,24 @@ public class LogoutTest {
 	public void setup() {
 		Navegadores.abrirNavegador();
 		metodo.clicar(el.menuLogin);
+		String email = "tojexov347@benznoi.com";
+		metodo.escrever(el.Email, email);
+		metodo.escrever(el.Password, "030798AA");
+		metodo.clicar(el.btnLogin);
 
 	}
 
 	@AfterEach
 	public void tearDown() {
 		Navegadores.fecharNavegador();
+
 	}
 
 	@Test
 	public void logoutSucesso() {
+		metodo.esperarElementoClicavel(el.menuLogout, 10);
+		metodo.clicar(el.menuLogout);
+		metodo.validarUrl("https://demowebshop.tricentis.com/");
 
 	}
 

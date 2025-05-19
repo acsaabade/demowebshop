@@ -37,6 +37,6 @@ public class Elementos {
 	 * Elemento para registrar Logout
 	 */
 
-	public By btnLogout = By.xpath("//a[@href='/logout']");
+	public By menuLogout = By.xpath("//a[@href='/logout']");
 
 }
