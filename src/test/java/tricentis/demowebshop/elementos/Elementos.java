@@ -39,4 +39,13 @@ public class Elementos {
 
 	public By menuLogout = By.xpath("//a[@href='/logout']");
 
+	/*
+	 * Elementos para limpar o Carrinho
+	 */
+
+	public By menuCarrinho = By.id("topcartlink");
+	public By checkBoxRemoverProduto = By.name("removefromcart");
+	public By atualizarCarrinho = By.name("updatecart");
+	public By carrinhoVazio = By.xpath("//div[normalize-space(text())='Your Shopping Cart is empty!']");
+
 }

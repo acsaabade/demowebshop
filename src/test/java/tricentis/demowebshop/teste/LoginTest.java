@@ -30,7 +30,7 @@ public class LoginTest {
 
 	@Test
 	public void senhaInvalida() {
-		home.login("tojexov347@benznoi.com", "errado", "The credentials provided are incorrect");
+		home.login("tojexov347@benznoi.com", "erro", "The credentials provided are incorrect");
 
 	}
 

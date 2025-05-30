@@ -4,10 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.opentest4j.AssertionFailedError;
@@ -87,9 +89,24 @@ public class Metodos extends Drivers {
 			assertEquals(urlDesejada, driver.getCurrentUrl());
 		} catch (Exception e) {
 			throw new NotFoundException(urlDesejada + " não encontrada.");
+		}
+	}
 
+	public String alrt() {
+
+		return driver.switchTo().alert().getText();
+
+	}
+
+	public boolean existText(By elemento, String textoEsperado) {
+		List<WebElement> elementos = driver.findElements(elemento);
+
+		if (elementos.isEmpty()) {
+			return false;
 		}
 
+		String textoNatela = elementos.get(0).getText().trim();
+		return textoNatela.equalsIgnoreCase(textoEsperado);
 	}
 
 }
